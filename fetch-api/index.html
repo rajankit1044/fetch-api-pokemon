@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Finder - Interactive Pokédex</title>
+  <meta name="description" content="Search and explore Pokémon with detailed stats, evolutions, and more.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Pokémon Finder</h1>
+    <div class="search-section">
+      <input list="pokemonList" id="pokemonInput" placeholder="Enter Pokémon name or ID" autocomplete="off" />
+      <datalist id="pokemonList"></datalist>
+      <button id="searchBtn">Search</button>
+      <button id="randomBtn">Random</button>
+    </div>
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Loading Pokémon...</p>
+    </div>
+    <div id="error" class="error hidden">
+      <p id="errorMsg">Pokémon not found!</p>
+    </div>
+
+    <div id="pokemonCard" class="pokemon-card hidden">
+      <div class="pokemon-header">
+        <h2 id="pokeName"></h2>
+        <div id="pokeTypes" class="poke-types"></div>
+        <button id="favoriteBtn" class="favorite-btn" aria-label="Add to favorites">❤️</button>
+      </div>
+      <div class="image-section">
+        <img id="pokeImg" src="" alt="Pokémon Image" loading="lazy" />
+        <button id="shinyToggle" class="shiny-btn">Shiny</button>
+      </div>
+      <div class="details">
+        <div class="basic-info">
+          <p><strong>Height:</strong> <span id="pokeHeight"></span> m</p>
+          <p><strong>Weight:</strong> <span id="pokeWeight"></span> kg</p>
+          <p><strong>Pokédex #:</strong> <span id="pokeId"></span></p>
+        </div>
+        <div class="flavor-text">
+          <h3>Description</h3>
+          <p id="pokeDescription"></p>
+        </div>
+      </div>
+      <div class="stats">
+        <h3>Base Stats</h3>
+        <div class="stat-bar">
+          <span>HP</span><div id="statHP" class="bar" data-value="0"></div><span class="stat-value" id="statHPValue">0</span>
+        </div>
+        <div class="stat-bar">
+          <span>Attack</span><div id="statAttack" class="bar" data-value="0"></div><span class="stat-value" id="statAttackValue">0</span>
+        </div>
+        <div class="stat-bar">
+          <span>Defense</span><div id="statDefense" class="bar" data-value="0"></div><span class="stat-value" id="statDefenseValue">0</span>
+        </div>
+        <div class="stat-bar">
+          <span>Sp. Atk</span><div id="statSpAtk" class="bar" data-value="0"></div><span class="stat-value" id="statSpAtkValue">0</span>
+        </div>
+        <div class="stat-bar">
+          <span>Sp. Def</span><div id="statSpDef" class="bar" data-value="0"></div><span class="stat-value" id="statSpDefValue">0</span>
+        </div>
+        <div class="stat-bar">
+          <span>Speed</span><div id="statSpeed" class="bar" data-value="0"></div><span class="stat-value" id="statSpeedValue">0</span>
+        </div>
+      </div>
+      <div class="abilities">
+        <h3>Abilities</h3>
+        <ul id="pokeAbilities"></ul>
+      </div>
+      <div class="evolution-chain">
+        <h3>Evolution Chain</h3>
+        <div id="evolutionContainer"></div>
+      </div>
+    </div>
+    <div id="favoritesSection" class="favorites-section hidden">
+      <h2>Favorites</h2>
+      <div id="favoritesList" class="favorites-list"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
